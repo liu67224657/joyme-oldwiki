@@ -1,0 +1,506 @@
+<link rel="stylesheet" href="<?php echo $wgStaticUrl;?>/pc/ugcwiki/css/talk.css">
+<div class="wrapper">
+	<div class="talk-box fn-clear"> 
+      <!--评论title-->
+      <div class="talk-tit fn-clear">
+      	<span>评论</span>
+            <div class="talk-btn">
+            <!--选择图片-->
+                  <div class="talk-btn-pic talk-btns" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+                        <div class="talk-btn-box">
+                             <span></span>
+                             <div class="talk-btn-piccont fn-clear" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+                                  <a href="javascript:void(0);" class="talk-pic-bd">
+                                  <!--<form method="post" action="" enctype="multipart/form-data" target="xframe" id="imgForm">
+                                    <input type="file" name="commentImg" id="commentImg" accept="image/*">
+                                    <input type="hidden" name="edittoken" id="edittoken">
+                                  </form>-->
+                                  </a>
+                                  <a href="javascript:void(0);" class="talk-pic-wl"></a>
+                             </div>
+                        </div>
+                  </div>
+            <!--表情-->
+                  <div class="talk-btn-face talk-btns" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+                        <div class="talk-btn-box" id="first-face">
+                             <span></span> 
+                             <div class="talk-btn-facecont">
+                                 <span class="facecont-tit"></span>
+                                 <div class="facecont-cont"></div>
+                             </div>
+                        </div>
+                  </div>
+            </div>
+      	<a id="totalnum">0条评论</a>
+      </div>
+      <!--评论内容-->
+      <div class="talk-cont" id="top_talk">
+      	 <div class="talk-text-box fn-clear"> 
+          <span class="talk-login">请先<a href="#">登陆</a>在来评论</span>
+          <span class="talk-mr">我来说两句...</span>
+      	  <div class="talk-text" id="maintext" contenteditable="true"></div>
+      	 </div> 
+      </div>
+      <!--提交按钮-->
+      <div class="talk-submit">
+          <span style="display:none">评论不能超过300字</span>
+          <a href="javascript:void(0);" id="comment-bt-main" data-bt="true">评论</a>  
+      </div>
+    </div>
+    <!--评论区展示    -->
+    <div class="talk-show">
+          <div class="talk-show-tit hot">热门评论</div>
+          <div class="talk-show-cont hot"></div>
+    </div>
+    <!--评论区展示    -->
+    <div class="talk-show">
+          <div class="talk-show-tit all">全部评论</div>
+          <div class="talk-show-cont all"></div>
+    </div>
+    <!--分页-->
+    <!--<div class="page-li">
+      <a href="#">上一页</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <span>第<input type="text">页<cite>GO</cite></span>
+      <a href="#">下一页</a>
+    </div>-->
+    <!--添加图片弹窗-->
+    <div class="opcity-bg"></div>
+    <!--网络图片-->
+    <div class="addpic" id="addpicWl" data-imgnum="5" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+        <div>
+           <div class="addpic-tit">网络图片<cite class="gb-btn addpic-closes"></cite></div>
+           <div class="addpic-cont">
+              <div class="addpic-cont-tit">
+               <input type="text" id="addpic-url" value="粘贴图片地址" class="addpic-url">
+               <a href="javascript:void(0);" class="addpic-urlbtn">添加</a>
+               <span class="addpic-urlhint">还可以添加<em>5</em>张</span>
+              </div>  
+              <div class="addpic-cont-main fn-clear"></div>  
+           </div>
+           <div class="addpic-btn">
+               <cite class="addpic-sure">确定</cite>
+               <cite class="addpic-close addpic-closes">取消</cite>
+           </div>
+        </div>  
+    </div>
+    <!--本地图片-->
+    <div class="addpic" id="addpicBd" data-imgnum="5" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+        <div>
+           <div class="addpic-tit">本地图片<cite class="gb-btn addpic-closes"></cite></div>
+           <div class="addpic-cont">
+			<div class="addpic-addbox">
+                <cite id="bd-btn"><input type="file" id="commentImg"></cite>
+                <span class="addpic-urlhint">还可以添加<em>5</em>张</span>
+            </div>
+              <div class="addpic-cont-main fn-clear">
+                <!--<div class="addpic-box">
+                <span class="addpic-closebox"></span><i><img src="http://imgsrc.baidu.com/forum/w%3D580/sign=85d373162ff5e0feee1889096c6134e5/fe014a90f603738ddcbb702db11bb051f919ecc8.jpg" alt=""></i>
+                </div>-->
+              </div>  
+           </div>
+           <div class="addpic-btn">
+               <cite class="addpic-sure" data-bt="true">确定</cite>
+               <cite class="addpic-close addpic-closes">取消</cite>
+           </div>
+        </div>  
+    </div>
+    <!--点赞和删除弹窗-->
+    <div class="dialog zan" style="display:none" id="error-dialog"><!--<div class="dialog sc">删除的弹窗-->
+      <span>已经赞过了！</span>
+      <div class="del">
+        <span>确定要删除吗？</span>
+        <div><cite>确定</cite> <cite>取消</cite></div>
+      </div>
+    </div>
+</div>
+<script type="text/javascript">
+      var ints={
+		imgnum : 5,
+		faceHtml:'',
+         talk:function(){
+            ints.talkFace('http://api.joyme.com/json/mood','.talk-btn-facecont');//表情渲染
+            //ints.talkBtn('.talk-btns','.talk-btn-box');//表情图片切换
+            //ints.talkTab('.facecont-tit','.facecont-cont','on');//表情
+            ints.showdialog(); //显示图片窗口
+            ints.praise();//点赞
+            ints.localpic();//本地图片窗口
+            ints.faceText();//标签加到输入框
+            ints.checkIe();
+            ints.imgDefault();
+         },
+         imgDefault:function(){
+          $('#maintext').on('click','img',function(e){
+            if(e && e.preventDefault){
+              e.preventDefault();
+            }else{
+              window.event.returnValue = false; 
+            };
+            if(e && e.stopPropagation){
+              e.stopPropagation(); 
+            }else{
+              window.event.cancelBubble = true;
+            };
+            return false;
+          });
+          $('#maintext img').resize(function(e){
+            if(e && e.preventDefault){
+              e.preventDefault();
+            }else{
+              window.event.returnValue = false; 
+            };
+            return false;
+          });
+         },
+         checkIe:function(){
+            var agent = navigator.userAgent.toLowerCase() ;
+            var regStr_ie = /msie [\d.]+;/gi ;
+            if(agent.indexOf("msie") > 0){
+              if(agent.match(regStr_ie) == "msie 9.0;" || agent.match(regStr_ie) == "msie 8.0;" || agent.match(regStr_ie) == "msie 7.0;" || agent.match(regStr_ie) == "msie 6.0;"){
+                $('.talk-btn-pic').hide();
+              }
+            };
+         },
+         localpic:function(){
+            var $box=$('#addpicBd');
+            var $mains=$('#addpicBd').find('.addpic-cont-main');
+            var $close=$('#addpicBd').find('.addpic-closes');
+            var $sure=$('#addpicBd').find('.addpic-sure');
+            var $texts=$('#top_talk').find('.talk-text');
+            /**var btn=document.getElementById('commentImg');
+            btn.onchange=function(e){
+              var files,file;
+              var e=e||window.event;
+               files = e.target.files||e.srcElement.files;
+                if(files&&files.length>0){
+                        file=files[0];
+                };
+                var URL = window.URL || window.webkitURL;
+                var imgURL = URL.createObjectURL(file);
+                showaddpicBd(imgURL);
+            };**/
+            function showaddpicBd(imgURL){
+              var imgs=imgURL;
+              $('.opcity-bg,#addpicBd').show();
+            }
+			$mains.on('click','span',function(){
+                $(this).parent().remove();
+                lengs=$mains.children('div').length;
+				var src = $(this).next().children('img').attr('src');
+				JT.delImage(src);
+        $('.addpic-urlbtn,#bd-btn').removeClass('end');
+		$(':file').attr('disabled', false);
+				var imgnum = $('#addpicBd').attr('data-imgnum');
+				JT.imgnum = parseInt(imgnum)+1;
+				$('.addpic').attr('data-imgnum', JT.imgnum);
+				$('.addpic').find('em').html(JT.imgnum);
+            });
+            $close.on('click',function(){
+                ints.countimg();
+                ints.closedialog($box,$mains);
+            });
+            $sure.on('click',function(){
+				if($('.addpic-sure:eq(1)').attr('data-bt') == 'true'){
+					ints.suerAdd($mains,$texts)
+					ints.closedialog($box,$mains);
+				}
+            });
+         },
+         talkFace:function(dataurl,parent){
+            $.ajax({
+                  url:dataurl,
+                  type: "post",
+                  async: false,
+                  //data: {unikey:window.uniKey, domain:window.domain, rid:rid},
+                  dataType: "jsonp",
+                  //jsonpCallback: "agreecallback",
+                  success: function (req) {
+                     if (req.rs == 1) {
+                        var facearr = req.result;
+                        var tabtit = '', tabcont = '';
+                        var strs = { tabicon: "", tabicon1: "", tabicon2: "" };
+                        var table = { smiley: "tabicon", pansite: "tabicon1", def: "tabicon2" };
+
+                        var num = 10;
+                        var page = 0;
+                        for (var i in facearr) {
+                            tabtit += '<em class="' + i + '"  onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">' + i + '</em>';
+
+                            var ii = table[i] || table.def;
+
+                            page = Math.ceil(facearr[i].length / 10);
+                            for (var j = 0; j < page; j++) {
+                                strs[ii] += '<tr>'
+                                for (var k = j * num; k < (j + 1) * num; k++) {
+                                    if (k < facearr[i].length) {
+                                        strs[ii] += '<td data-name="'+facearr[i][k].code+'"><img src="' + facearr[i][k].pic + '" alt="' + facearr[i][k].code + '" /></td>';
+                                    }
+                                }
+                                strs[ii] += '</tr>';
+                            };
+                            tabcont += '<table class="' + i + '"><tbody>' + strs[ii] + '</tbody></table>'
+                        }
+                        $('.facecont-tit').each(function(){
+                          $(this).html(tabtit);
+                          $(this).children('em:first').addClass('on');
+                        });
+                        $('.facecont-cont').each(function(){
+                          $(this).html(tabcont);
+                          $(this).children('table:first').addClass('on');
+                        });
+						ints.faceHtml+=$('.talk-btn-facecont:first').html();
+                    };
+                  },
+                  error: function () {
+                        //setErrMsg('agreeComment程序错误');
+                  }
+            });
+         },
+         talkBtn:function(parent,boxs){
+		 $(parent).unbind('click');
+		 $(document).unbind('click');
+            $(parent).on('click',function(e){
+                $('#maintext').blur();
+                if(!JT.islogin){
+                  errDialog('请'+JT.login+'后在继续操作！', false);
+                  return false;
+                };
+				    var selection= window.getSelection ? window.getSelection() : document.selection;
+            var range= selection.createRange ? selection.createRange() : (selection.getRangeAt && selection.rangeCount ? selection.getRangeAt(0) : null);
+				if($(this).hasClass('talk-btn-pic') && $(selection.anchorNode).parent().attr('id') == 'maintext'){
+					JT.range = range.cloneRange();
+				}
+				var imglen = parseInt($('#maintext').find('img').length);
+				JT.imgnum = imglen == 0 ? 5 : 5-imglen;
+				$('.addpic').attr('data-imgnum', JT.imgnum);
+				$('.addpic').find('em').html(JT.imgnum);
+				if(JT.imgnum==0){
+					errDialog('插入图片已达上限，最多可插入5张~', false);
+					return false;
+				}
+                if(e||e.stopPropagation){
+					e.stopPropagation();
+				}else{
+					window.event.cancelBubble=true;     
+				}
+                $(this).children('div').show();
+                $(this).children('div').find('.facecont-tit').children('em').removeClass('on');
+                $(this).children('div').find('.facecont-cont').children('table').removeClass('on');
+                $(this).children('div').find('.facecont-tit').children('em').first().addClass('on');
+                $(this).children('div').find('.facecont-cont').children('table').first().addClass('on');
+                $(this).siblings().children('div').hide();
+				$('.addpic-urlbtn,#bd-btn').removeClass('end');
+				$(':file').attr('disabled', false);
+            });
+            $(document).on('click',function(){
+               $(boxs).hide();
+            })
+         },
+         faceText:function(){
+		 $('.facecont-cont').find('td').unbind('click');
+           $('.facecont-cont').find('td').on('click',function(e){
+            if(e||e.stopPropagation){
+				e.stopPropagation();
+			}else{
+				window.event.cancelBubble=true;     
+			}
+            var vals='['+$(this).attr('data-name')+']';
+            var parents=$(this).parents('.talk-btn-box');
+            var textbox;
+            parents.hide();
+            if(parents.attr('id')==="first-face"){
+              textbox=$(this).parents('.talk-box').find('.talk-text');
+              showText(vals,textbox)
+            }else{
+              textbox=$(this).parents('.talk-submit-box').prev('.talk-text');
+               showText(vals,textbox)
+            }
+           });
+           function showText(vals,text){
+            var vals;
+			if($(text).attr('id') == 'maintext'){
+				var selection= window.getSelection ? window.getSelection() : document.selection;
+				if($(selection.anchorNode).parent().parent().attr('id') != 'maintext' && $(selection.anchorNode).parent().attr('id') != 'maintext' ){
+					$('#maintext').focus();
+					elem = document.getElementById('maintext');
+					JT.setEndOfContenteditable(elem);
+				}
+				JT.pasteHtmlAtCaret(vals, false);
+			}else{
+				$(text).insertAtCaret(vals);
+			}
+			//$(text).focus();
+			//JT.pasteHtmlAtCaret(vals, false);
+			//$(text).insertAtCaret(vals);
+			/*
+			if($(text).attr('id') == 'maintext'){
+				if(text.html()===""){
+					text.prev('.talk-mr').hide();
+					vals=JT.replaceBr(text.html())+vals;
+				}else{
+					vals=JT.replaceBr(text.html())+vals;
+				}
+				text.html(vals);
+			}else{
+				if(text.val()===""){
+					text.prev('.talk-mr').hide();
+					vals=text.val()+vals;
+				}else{
+					vals=text.val()+vals;
+				}
+				text.val(vals);
+			}*/
+           };
+         },
+         talkTab:function(tabmenu,tabcont,classn){
+            $(tabmenu).each(function(){
+			     $(this).find('em').unbind('click');
+              $(this).on('click','em',function(e){
+                    if(e||e.stopPropagation){
+                      e.stopPropagation();
+                    }else{
+                      window.event.cancelBubble=true;     
+                    }
+                  var inds=$(this).index();
+                  $(this).addClass(classn).siblings().removeClass(classn);
+                  $(tabcont).each(function(){
+                    $(this).children('table').eq(inds).addClass(classn).siblings().removeClass(classn);
+                  })
+              })
+            });
+         },
+         showdialog:function(box){
+            var $box=$('#addpicWl');
+            var $mains=$('#addpicWl').find('.addpic-cont-main');
+            var $close=$('#addpicWl').find('.addpic-closes');
+            var $sure=$('#addpicWl').find('.addpic-sure');
+            var $texts=$('#top_talk').find('.talk-text');
+            $('.talk-pic-wl').on('click',function(){
+                  $('.opcity-bg,#addpicWl').show();   
+            });
+			$('.talk-pic-bd').on('click',function(){
+                  $('.opcity-bg,#addpicBd').show();   
+            });
+            $close.on('click',function(){
+				        ints.countimg();
+                ints.closedialog($box,$mains);
+            });
+            $sure.on('click',function(){
+                ints.suerAdd($mains,$texts)
+                ints.closedialog($box,$mains);
+            });
+            ints.addNetworkpic();
+         },
+         addNetworkpic:function(){
+            var $mains=$('#addpicWl').find('.addpic-cont-main');
+            ints.textvalue('#addpic-url','粘贴图片地址');
+            var lengs,urls;
+            var lengths=ints.imgnum;
+            $('#addpicWl').find('.addpic-urlbtn').on('click',function(){
+                urls=$('#addpic-url').val();
+                if(urls.match(/.+(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.PNG|.png)$/) == null){
+                    return false
+                }else{
+                  lengs=$('#addpicWl').attr('data-imgnum');
+                  addpics();
+                  $('#addpic-url').val('粘贴图片地址');
+                };
+            });
+            $mains.on('click','span',function(){
+                $(this).parent().remove();
+                var imgnum = $('.addpic').attr('data-imgnum');
+                imgnum = parseInt(imgnum)+1;
+                $('.addpic').attr('data-imgnum', imgnum);
+                $('.addpic').find('em').html(imgnum);
+                $('.addpic-urlbtn,#bd-btn').removeClass('end');
+            });
+            function addpics(){
+              if(lengs==0){
+                   return false;
+               }else{
+                  ints.showpics($mains,urls) 
+                  $('.addpic-urlhint').children('em').html($('#addpicWl').attr('data-imgnum')); 
+               } 
+            };
+         },
+         closedialog:function($box,$mains){
+            $('#addpic-url').val('粘贴图片地址');
+            $mains.html('');
+            $('.opcity-bg').hide();
+            $box.hide();
+         },
+         suerAdd:function($mains,$texts){
+          var pics=$mains.find('i');
+          var htmls='&nbsp;';
+          pics.each(function(){
+            htmls+=$(this).html();
+          });
+		 // $('#maintext').focus();
+		  $texts.prev('.talk-mr').hide();
+		 var selection= window.getSelection ? window.getSelection() : document.selection;
+		if(JT.range == null || ($(selection.anchorNode).parent().parent().attr('id') != 'maintext' && $(selection.anchorNode).parent().attr('id') != 'maintext')){
+			$('#maintext').focus();
+			elem = document.getElementById('maintext');
+			JT.setEndOfContenteditable(elem);
+		}
+		 JT.pasteHtmlAtCaret(htmls, false);
+		 JT.range = null;
+          /*var vals;
+          if($texts.html()===""){
+            $texts.prev('.talk-mr').hide();
+            vals=$texts.html()+htmls;
+          }else{
+            vals=$texts.html()+htmls;
+          }
+          $texts.html(vals);*/
+         },
+         showpics:function($mains,urls){/*$mains是插入图片的div urls是图片的地址*/
+            var pichtml='<div class="addpic-box"><span class="addpic-closebox"></span><i><img contenteditable="false" draggable="false" galleryimg="no" src="'+urls+'"></i></div>';
+            $mains.append(pichtml);
+			var imgnum = $('#addpicBd').attr('data-imgnum');
+			JT.imgnum = parseInt(imgnum)-1 > 0 ? parseInt(imgnum)-1 : 0;
+			$('.addpic').attr('data-imgnum', JT.imgnum);
+      if(JT.imgnum<1){
+        $('.addpic-urlbtn,#bd-btn').addClass('end');
+		$(':file').attr('disabled', 'disabled');
+      }
+			$('.addpic').find('em').html(JT.imgnum);
+         },
+         textvalue:function(textinput,values){
+            $(textinput).focus(function(){
+              var value_url=$(textinput).val();
+              if(value_url==values){
+                 $(textinput).val(''); 
+              }else{
+                $(textinput).val(value_url);
+              }
+            })
+            $(textinput).blur(function(){
+               var value_urls=$(textinput).val();
+               if(value_urls==''){
+                  $(textinput).val(values);
+               }else{
+                  $(textinput).val(value_urls); 
+               }
+            })
+         },
+         praise:function(){
+          $('.user-dz').on('click',function(){
+            var nums=$(this).html();
+                nums=nums.substr(2,nums.length-3)*1;
+            nums++;
+            $(this).html('赞('+nums+')');
+          })
+         },
+		 // 统计图片数量
+		 countimg:function(){
+			var imgNum = $('#maintext').find('img').length;
+			JT.imgnum = ints.imgnum - imgNum;
+		 }
+      };
+      ints.talk();
+</script>
+<input type="hidden" value="<?php echo $formhash;?>" id="formhash" />

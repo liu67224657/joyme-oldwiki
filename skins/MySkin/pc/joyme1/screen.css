@@ -1,0 +1,289 @@
+html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { margin: 0; padding: 0; border:0;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {display: block;}
+audio, canvas, video { display: inline-block;*display: inline;*zoom: 1;}
+body, button, input, select, textarea { font:12px/1.5 arial, \5FAE\8F6F\96C5\9ED1, \5b8b\4f53, helvetica, sans-serif; outline:none; }
+input, select, textarea {font-size: 100%;}
+table {border-collapse: collapse;border-spacing: 0;}
+th {text-align: inherit;}
+fieldset, img {border: 0;}
+iframe {display: block;}
+abbr, acronym {border: 0;font-variant: normal;}
+del {text-decoration: line-through;}
+address, caption, cite, code, dfn, em, th, var {font-style: normal;font-weight: 500;}
+caption, th {text-align: left;}
+ul{ list-style:none;}
+h1, h2, h3, h4, h5, h6 {font-size: 100%;font-weight: 500;}
+q:before, q:after {content: '';}
+sub, sup {font-size: 75%;line-height: 0;position: relative;vertical-align: baseline;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+a{ outline:none; }
+a:link {color: #08c; text-decoration:none;}
+a:visited { color: #08c}
+a:hover { text-decoration: underline;}
+ins{text-decoration: none;}
+code, kbd, pre, samp {font-family: monospace, serif;font-size: 1em;}
+body{ background:#57a6d3 url(images/wiki-blue.png) repeat 0 0; overflow-x:hidden; overflow-y:auto;}
+/*wiki默认样式*/
+.mw-content-ltr ul,.mw-content-rtl .mw-content-ltr ul{  list-style-type:disc; /*list-style-image:url(images/ul-list-bg.png);*/ }
+#specialform { display: inline; }
+#mw-data-after-content {color: black;font-size: 8pt;}
+#powersearch {background: #DDEEFF;border-style: solid;border-width: 1px;padding: 2px;}
+#article{ font-size:14px; color:#3a3a3a;}
+#article p { line-height:24px;}
+p, pre, .mw-code, td, th, li, dd, dt { line-height: 24px;}
+textarea {overflow: auto;width: 100%; display: block;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+/*版权信息*/
+#footer {margin-right: 2%;margin-top: 1em;padding: 4px;font-family: verdana, arial, sans-serif;font-size: 10pt;text-align: center;}
+#footer form {display: inline; }
+#cb-ca-edit {font-weight: bold;}
+div.after-portlet {display: inline;padding-left: .5em;}
+h1 {color: #666; font-size: 180%;}
+h1#firstHeading { margin:0; padding:0 0 10px; display:block; clear:both; border-bottom:1px solid #e3e3e3; overflow:visible;position:relative;z-index:3;}
+h1#firstHeading em{ float:left; }
+#article p.subtitle, #article p.subpages, #article p.tagline {color: #666;font-size: 11pt;font-weight: bold;padding-top: 0;margin-top: 0;}
+a.external {color: #364; padding-right:13px; background:url(images/svg.gif) no-repeat right center;}
+a.printable {text-decoration: underline;}
+a.stub, #quickbar a.stub {color: #723;text-decoration: none;}
+a.new, #quickbar span.new a, #footer span.new a {color: #CC2200;}
+small {font-size:12px;}
+#footer { margin:0; padding:0;}
+#sitetitle, #sitesub, #toplinks, #linkcollection {margin-top: 0;margin-bottom: 0;}
+#sitetitle, #toplinks { color:#fff;text-transform: uppercase; }
+#sitetitle a, #toplinks a {color: #333;text-decoration: none;}
+#sitetitle a {position: relative; z-index: 10}
+#toplinks { position:absolute; right:20px; top:15px;}
+#toplinks a {font-size: 10pt;}
+#toplinks p {width: 100%;}
+#syslinks{ display:inline;}
+#toplinks #variantlinks { }
+#sitesub {float: left;margin-left: 8px;font-size: 9pt;font-weight: bold;color: black;}
+#linkcollection {margin-top: 0.5em;font-size: small;margin-right: 8px;text-align: right;padding-left: 140px;}
+#linkcollection * {text-align: right;}
+/*公共样式*/
+.fn-ma{ margin-left:auto; margin-right:auto;}
+.fn-ovf{ overflow:hidden;}
+/*清除浮动*/
+.fn-clear:after {visibility: hidden;display: block;font-size: 0;content: " ";clear: both; height: 0;}
+.fn-clear { zoom: 1;}
+/*隐藏*/
+.fn-hide { display: none;}
+/*左浮动*/
+.fn-left { float: left;}
+/*右浮动*/
+.fn-right { float: right;}
+/*居中*/
+.fn-center{text-align:center;}
+/*字数截取显示...*/
+.fn-text-ovf{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+
+/*用于显示词条信息*/
+#siteSub{ display:block;}
+/*暂时不清楚用来做什么的?*/
+#contentSub,#contentSub2{ margin:0; padding:0; height:0; font-size:0;}
+/*标题字体*/
+#mw-content-text h2{ color:#3a3a3a; padding:5px 0 3px;}
+#mw-content-text h2{ border-bottom:1px solid #e3e3e3; padding-bottom:3px; }
+#mw-content-text h2,#mw-content-text h3,#mw-content-text h4{ padding-top:4px;}
+#mw-content-text h2 span.mw-headline{ font-size:20px;}
+#mw-content-text h3 span.mw-headline{ font-size:18px;}
+#mw-content-text h4 span.mw-headline{ font-size:16px;}
+/*表格元素*/
+table.wikitable{ width:100%; border: 1px #aaa solid; border-collapse: collapse; background-color:#fff; color:#000; margin:0; }
+table.wikitable > tr > th,
+table.wikitable > tr > td,
+table.wikitable > * > tr > th,
+table.wikitable > * > tr > td { border: 1px #aaa solid; padding:5px; }
+/*若为表格添加“标题行”则会生成以下class,默认值为空*/
+table.sortable{ }
+table.jquery-tablesorter{ }
+table.mw-specialpages-table{ margin:5px 0;}
+table.mw-specialpages-table ul li{ line-height:22px; }
+#wiki-pages{ height:28px; }
+#wiki-pages span{ height:28px; line-height: 28px; padding-right:10px; font-size: 26px; float:left;}
+#wiki-pages cite{ float:left; }
+#wiki-pages b,#wiki-pages font{ width:40px; font-weight:normal; font-style:normal; display:block; overflow:hidden; font-size:12px; line-height:14px;white-space:nowrap;}
+/*编辑工具导航*/
+#mw-navigation{ }
+#mw-head{ }
+/*工具排列方式*/
+#p-namespaces{ overflow:hidden;}
+#p-namespaces ul{ font-size:0;}
+#p-namespaces ul li{ float:left; margin:0 5px 0 0; font-size:12px; color:#000;}
+#p-personal{ }
+#p-personal-label{ }
+/*名字空间*/
+#left-navigation{ }
+/*图片上传样式*/
+#uploadtext{ }
+#uploadtext ul{ }
+#uploadtext p,
+#uploadtext ul li{ padding:10px 0;}
+/*上传来源文件*/
+#mw-htmlform-source{ }
+#mw-htmlform-source td{ padding:5px 0;}
+/*上传摘要的文本*/
+#wpUploadDescription{ border:1px solid #aaa;}
+/*上传摘要的筛选*/
+.mw-htmlform-field-Licenses .mw-label,
+.mw-htmlform-field-Licenses .mw-input{ padding:10px 0 0;}
+.mw-htmlform-field-HTMLTextField .mw-input{ padding:10px 0; }
+.mw-input #wpDestFile{ height:24px; text-indent:3px; }
+/*顶部导航背景*/
+#sitetitle{ }
+/*页面主体*/
+#wrapper{ width:100%;}
+/*页面头部*/
+#header{ }
+/*内容主题*/
+#main{ width:auto; max-width:1600px; min-height:700px; background:#fff; position:relative; padding:20px 20px 40px;}
+#main.wauto{ margin:45px 170px 0;}
+#main.w960{ width:960px; margin:45px auto 0;}
+/*搜索框*/
+input.mw-searchInput { width:100px; padding:3px 5px 0; font-size:12px; line-height:14px; }
+input.searchButton{ width:30px; height:20px; text-indent:-999em; background:#FFF url(images/wiki-search-bg.gif) no-repeat 0 center; cursor:pointer; vertical-align:top; }
+input::-webkit-input-placeholder{ padding:0 0 0 5px; }
+input::-moz-input-placeholder{ padding:0 0 0 5px; }
+input::-ms-input-placeholder{ padding:0 0 0 5px; }
+input::--input-placeholder { padding:0 0 0 5px; }
+/*顶部工具条*/
+input.search-new-textInput{ padding:4px 0; border:none; background:none;}
+input.search-new-submit{ }
+/*搜索*/
+#p-search{ position:absolute; top:20px; right:20px; z-index:19; width:140px; height:20px; border:1px solid #c5ced9; background:#fff; font-size:0;}
+#p-search h3,#p-pageoptions h3,#ca-nstab-main,#ca-talk,#ca-unwatch,#p-views h3{ display:none;}
+/*logo*/
+#logo{ }
+.wiki-logo{ position:absolute; top:20px; left:20px; width:180px; height:65px; background:url(images/logo.jpg) no-repeat center center;}
+.wiki-logo a{ display:block; width:180px; height:65px; text-indent:-999em;}
+
+/*主题导航*/
+#quickbar { height:60px; position:relative; margin:0 0 30px 250px; visibility: visible; z-index:9;}
+#quickbar:after{ content:""; position:absolute; bottom:0; right:-20px; width:20px; height:32px; background:#006cb0 url(images/t-nav.png) repeat-x 0 0; visibility:inherit; }
+.headnav{ float:left; background:url(images/wiki-headnav.gif) no-repeat right 3px; }
+.headnav h3{ height:28px; font-size:16px; font-weight:normal; padding:0 15px 0 0; overflow:hidden; float:left; cursor:pointer;}
+.headnav h3 span{ display:block; height:28px; line-height:30px; padding:0 0 0 15px;}
+.headnav h3 span a{ color:#3a3a3a; }
+.headnav > ul{ width:100%; height:29px; padding:3px 0 0; position:absolute; top:28px; left:4px; display:none; z-index:19;}
+.headnav > ul li{ height:30px; line-height:30px; float:left; position:relative;}
+.headnav > ul li a{ display:block; padding:0 15px; font-size:14px; color:#fff; text-decoration:none; position:relative; z-index:10;}
+.headnav > ul li a:hover{ text-decoration:underline; }
+.headnav > ul li ul{ display:none; position:absolute; top:29px; left:-1px; min-width:50px; background:#fff; border:1px solid #006cb0; border-top:none; -webkit-box-shadow: 0 3px 10px rgba(4,0,0,.5); -moz-box-shadow: 0 3px 10px rgba(4,0,0,.5); -ms-box-shadow: 0 3px 10px rgba(4,0,0,.5);-o-box-shadow: 0 3px 10px rgba(4,0,0,.5); box-shadow: 0 3px 10px rgba(4,0,0,.5); z-index:9; }
+.headnav > ul li.sel>a{ background:url(images/tagmenu-bg.png) no-repeat right -17px;}
+.headnav > ul li.sel:hover>a{ background:#fff url(images/tagmenu-bg.png) no-repeat right 14px; color:#3a3a3a; -webkit-border-radius:3px 3px 0 0; -moz-border-radius:3px 3px 0 0; -ms-border-radius:3px 3px 0 0; -o-border-radius:3px 3px 0 0; border-radius:3px 3px 0 0; text-decoration:none; }
+.headnav > ul li ul li{ width:100%; display:block; padding:0;}
+.headnav > ul li ul li a{ background:#fff; display:block; padding:0 15px; color:#3a3a3a; white-space:nowrap; text-decoration:none;}
+.headnav > ul li ul li a:hover{ background:#c8dbe6!important;-webkit-border-radius:0!important; -moz-border-radius:0!important; -ms-border-radius:0!important; -o-border-radius:0!important; border-radius:0!important; }
+
+/*选中状态*/
+.action h3{ position:relative; z-index:10; margin-top:2px; color:#fff; background:#006cb0 url(images/t-mainNav.png) no-repeat right 0;}
+.action h3 span{ line-height:28px; background:#006cb0 url(images/t-mainNav.png) no-repeat 0 0; }
+.action h3 span a{ color:#fff; text-decoration:none;}
+.action h3 span a:hover{ color:#fff; }
+.action > ul{ display:block;}
+.headnav-bg{ width:100%; height:32px; position:absolute; top:28px; left:0; z-index:9; background:#006cb0 url(images/t-nav.png) repeat-x 0 bottom; }
+/*编辑*/
+#p-views{ padding:32px 0 0; clear:both; overflow:hidden; text-align:right;}
+#p-views ul,#p-pageoptions ul,#p-personal ul,#p-cactions ul{ display:block;}
+#p-views ul{ float:right; padding-right:65px; }
+/*===按钮===*/
+.createboxInput,#mw-input-like{ border:1px solid #999; background:#fff; text-indent:3px; }
+#mw-input-like{ line-height:16px; padding:2px 0;}
+.createboxButton,.mw-htmlform-submit{ padding:0 5px; border:1px solid #999; cursor:pointer; }
+/*编辑*/
+#p-cactions{ position:absolute; top:110px; right:20px;z-index:4;}
+#p-cactions h3 a{ display:block; font-size:12px;}
+.wiki-taglist{ display:block; overflow:hidden; float:left; }
+.wiki-taglist li{ margin-left:15px; float:left;}
+.wiki-taglist li a:hover,#head-more a:hover,#head-more span:hover a,#head-comments a:hover,#head-comments span:hover a{ text-decoration:none;}
+#head-comments,
+#head-more,
+#head-contributebox{ position:relative; z-index:2; margin:5px 0 0 15px; float:left; cursor:pointer;}
+#head-more span,
+#head-contributebox span,#head-comments span{ display:block; position:relative; z-index:9; }
+#head-more i,#head-contributebox i{ position:absolute; top:8px; width:8px; height:5px; background:url(images/t-more.png) no-repeat 0 0; }
+#head-more i{ right:10px; }
+#head-contributebox i{ width:14px; height:16px; top:3px; left:8px; background:url(images/contribute-bg.png) no-repeat 0 0; }
+#head-comments span,
+#head-more span,
+.wiki-taglist li,
+#head-contributebox > span{ height:21px; padding:0 0 0 20px; background:url(images/t-btn.png) no-repeat 0 -21px; -webkit-border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; border-radius:5px; }
+#head-comments span{ padding:0 0 0 15px; }
+#head-contributebox > span{ padding:0 0 0 25px; }
+#head-comments span a,
+.wiki-taglist li a,
+#head-more span a,
+#head-contributebox > span a{ display:block; padding:0 20px 0 0; background:url(images/t-btn.png) no-repeat right -21px; line-height:22px; color:#3a3a3a; font-weight:normal; font-size:12px; -webkit-border-radius:5px; -moz-border-radius:5px; -o-border-radius:5px; border-radius:5px; }
+#head-comments span a{ padding:0 15px 0 0; }
+#head-contributebox > span a{ padding:0 15px 0 0; }
+.wiki-taglist li:hover,
+.wiki-taglist li.selected,
+#head-comments span,
+#head-comments span:hover,
+#head-more span:hover,
+#head-more span.selected,
+#head-contributebox > span:hover,
+#head-contributebox span.selected{ background:url(images/t-btn.png) no-repeat 0 0;}
+
+.wiki-taglist li:hover a,
+.wiki-taglist li.selected a,
+#head-comments span a,
+#head-comments span:hover a,
+#head-more span:hover a,
+#head-more span.selected a,
+#head-contributebox > span:hover a,
+#head-contributebox > span.selected a{ background:url(images/t-btn.png) no-repeat right 0; color:#fff; }
+/*更多*/
+#firstHeading .head-menu,.head-contributemenu{ display:none; position:absolute; top:18px; left:0; width:98px; z-index:19; border:1px solid #006cb0; border-top:none; }
+#firstHeading .head-menu ul,.head-contributemenu ul{ text-align:center; padding-top:3px;}
+#firstHeading .head-menu ul li,.head-contributemenu ul li{ margin:0; padding:0; display:block; text-align:center; float:none; }
+#firstHeading .head-menu ul li a,.head-contributemenu ul li a{ display:block; line-height:24px; font-size:12px; color:#3a3a3a; background:#fff;}
+#firstHeading .head-menu ul li a:hover,.head-contributemenu ul li a:hover{ background:#c8dbe6;}
+/*版权信息*/
+#footer-info{ width:100%; overflow:hidden; padding:20px 0; color:#3a3a3a;}
+.footerbar{ width: 100%; margin:40px auto 0; clear: both; padding:20px 0; color:#fff; background: #232323; overflow: hidden;}
+.footerbar a,.footerbar a:hover{ color:#fff;}
+.footerbar a:hover{ text-decoration:underline}
+/*热门游戏*/
+.hot-tag{ margin:20px auto 20px; padding:0 0 20px; overflow:hidden; border:1px solid #ccc; clear:both;}
+.hot-tag h6{ width:100%; padding:10px 0; text-indent:15px; font-size:16px;}
+.hot-wikiList{ text-align:center; overflow:hidden; font-size:0; }
+.hot-wikiList a{ display:block; width:20%; float:left; text-align:center;}
+.hot-wikiList a span{ position:relative; display:inline-block;*display:inline;*zoom:1; width:90%; text-align:left; border:1px solid #ccc; overflow:hidden;}
+.hot-wikiList a b{ position:absolute; left:0; bottom:0; width:100%; height:40px; font-size:14px; font-weight:normal; color:#fff; background:url(images/alpha-bg.png) repeat-x 0 0; text-indent:10px;}
+.hot-wikiList a font,.hot-wikiList a i{ line-height:20px; font-style:normal; display:block;}
+.hot-wikiList a i{ font-size:12px;}
+.hot-wikiList a img{ width:100%; }
+/*申请创建wiki*/
+.con-banner{ width: 100%; height: 100px; background: #3e3e3e; text-align: center; }
+.con-banner a{ width: 1000px; height: 100px; }
+.con-banner a img{ }
+/*编辑框*/
+#wpTextbox1,#toolbar{ border:1px solid #ccc;}
+#toolbar{ border-bottom:0;}
+.editButtons input[type='submit']{ border:1px solid #666; padding:0 5px; cursor:pointer; }
+.editButtons input[type='button']{ border:1px solid #666; padding:0 5px; cursor:pointer; }
+.wikiEditor-ui-buttons button{ border:1px solid #666; padding:0 5px; cursor:pointer;margin-top:6px;}
+.wikieditor-toolbar-field-wrapper input{border:1px solid #666;}
+/*返回顶部*/
+#getTop{ width:18px; text-align:center; padding:2px; background:url(images/alpha-bg.png) repeat 0 0; position:fixed; bottom:100px; right:0; cursor:pointer; display:none;}	
+#getTop span{ word-wrap: break-word; word-break: normal; font-size:14px; line-height:16px; color:#fff; }
+#title {border:1px solid #d4d4d4;margin-right:15px;width:400px;padding:5px 0;}
+.editOptions input {border:1px solid #d4d4d4;padding:5px;margin-top:10px;}
+/*pager*/
+.more-comment {margin:0 20px;height:30px;padding:15px 0;}
+.more-comment a {color:#0087d6;padding:2px 5px;font-size:14px;margin:0 5px}
+.more-comment a:hover {background:#5eb0e3;color:#fff;}
+.more-comment a:active {padding:2px 5px;font-size:14px;background:#5eb0e3;color:#fff;}
+.more-comment a.cur {padding:2px 5px;font-size:14px;background:#5eb0e3;color:#fff;}
+.more-comment span {color:#919191;}
+
+.comment_all{ background:url(images/comment-all.png) no-repeat 0 0;}
+#hot_title{ background:url(images/hot-title.png) no-repeat 0 0;}
+.comment_all,#hot_title{ height:23px; padding:0 0 0 8px; margin:10px 0; color:#fff; font-size:16px; }
+
+/*可视化编辑器*/
+.oo-ui-dialog{ z-index: 9999;}
+.oo-ui-toolbar{border:1px solid #dedfe0;border-top:none;border-bottom:none;}
+.ve-ui-surface{background:#f6f6f6;border:1px solid #dedfe0;border-top:none;padding:10px;}

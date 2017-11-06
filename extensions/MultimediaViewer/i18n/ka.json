@@ -1,0 +1,22 @@
+{
+	"@metadata": {
+		"authors": [
+			"Otogi",
+			"David1010",
+			"MIKHEIL",
+			"Chavch"
+		]
+	},
+	"multimediaviewer-pref": "მედია დამთვალიერებელი",
+	"multimediaviewer-optin-pref": "<span class=\"plainlinks\">[https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:Media_Viewer/About მედია-მაყურებლის]</span> ჩართვა",
+	"multimediaviewer-userpage-link": "{{GENDER:$2|ატვირთა}} მომხმარებელმა $1",
+	"multimediaviewer-metadata-error": "სურათის ჩატვირთვა ვერ მოხერხდა (შეცდომა: $1)",
+	"multimediaviewer-thumbnail-error": "სამწუხაროდ, ამ ფაილის ჩვენება შეუძლებელია",
+	"multimediaviewer-thumbnail-error-retry": "ხელახლა ცდა",
+	"multimediaviewer-permission-link-hide": "პირობების დამალვა",
+	"multimediaviewer-help-mmv": "დახმარება",
+	"multimediaviewer-text-embed-credit-text-tbls-nonfree": "$2 „$1“-ის მიერ. $3 $4-დან",
+	"multimediaviewer-text-embed-credit-text-tls-nonfree": "„$1“. $2  $3-დან",
+	"multimediaviewer-html-embed-credit-text-tbl-nonfree": "$2 „$1“-ის მიერ. $3.",
+	"multimediaviewer-download-optional-attribution-cta-header": "შეგიძლიათ მიუთითოთ ავტორი"
+}

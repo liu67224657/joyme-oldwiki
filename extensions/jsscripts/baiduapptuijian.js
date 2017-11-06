@@ -1,0 +1,1 @@
+document.write(unescape('%3Cdiv id="hm_t_36221"%3E%3C/div%3E%3Cscript charset="utf-8" src="http://crs.baidu.com/t.js?siteId=0a10eee10a39c33d4a8a61d3ad35a96f&planId=36221&async=0&referer=') + encodeURIComponent(document.referrer) + '&title=' + encodeURIComponent(document.title) + '&rnd=' + (+new Date) + unescape('"%3E%3C/script%3E'));

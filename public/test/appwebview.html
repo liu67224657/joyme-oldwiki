@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+        <script>
+            var browser = {
+                versions: function() {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {//移动终端浏览器版本信息 
+                        trident: u.indexOf('Trident') > -1, //IE内核 
+                        presto: u.indexOf('Presto') > -1, //opera内核 
+                        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核 
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核 
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端 
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器 
+                        iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
+                        iPad: u.indexOf('iPad') > -1, //是否iPad 
+                        webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部 
+                    };
+                }(),
+                language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            }
+            if (browser.versions.ios) {
+                document.write("<script src='WebViewJavascriptBridge.js?111'><\/script>");
+                var _jclient
+            }
+            window.onerror = function(err) {
+                alert('window.onerror: ' + err)
+            }
+            function UrlEncode(str) {
+                var ret = "";
+                var strSpecial = "!\"#$%&'()*+,/:;<=>?[]^`{|}~%";
+                var tt = "";
+
+                for (var i = 0; i < str.length; i++) {
+                    var chr = str.charAt(i);
+                    var c = str2asc(chr);
+                    tt += chr + ":" + c + "n";
+                    if (parseInt("0x" + c) > 0x7f) {
+                        ret += "%" + c.slice(0, 2) + "%" + c.slice(-2);
+                    } else {
+                        if (chr == " ")
+                            ret += "+";
+                        else if (strSpecial.indexOf(chr) != -1)
+                            ret += "%" + c.toString(16);
+                        else
+                            ret += chr;
+                    }
+                }
+                return ret;
+            }
+            function saveImage(browser, imgurl, name, format) {
+                var stringval = 'src=' + imgurl + "&name=" + name + "&format=" + format;
+                if (browser.versions.ios) {
+                    _jclient.callHandler('saveImage', stringval, function(response) {
+                        alert("saveImage->server=>" + response)
+                    })
+                }
+                if (browser.versions.android) {
+                    _jclient.saveImage(stringval);
+                }
+            }
+            function download(browser, urlpath, name, format) {
+                var stringval = 'src=' + urlpath + "&name=" + name + "&format=" + format;
+                if (browser.versions.ios) {
+                    _jclient.callHandler('download', stringval, function(response) {
+                        alert("sendMsgToNative->server=>" + response)
+                    })
+                }
+                if (browser.versions.android) {
+                    _jclient.download(stringval);
+                }
+            }
+
+            function saveloginInfo2app() {
+                var stringval = 'name=antony&uno=008203e7-37f7-46ff-a5b6-75ef52bc7c44&uid=112233&token=a1569bfedbfcf605122ac0f3e3adc14';
+                if (browser.versions.ios) {
+                    _jclient.callHandler('login', stringval, function(response) {
+                        alert("saveloginInfo->server=>" + response)
+                    })
+                }
+                if (browser.versions.android) {
+                    _jclient.login(stringval);
+                }
+
+            }
+            function jsApi() {
+                var stringval = 'say?word=helloJoyme!&name=haoshen';
+                if (browser.versions.ios) {
+                    _jclient.callHandler('jsapi', stringval, function(response) {
+                        alert("jsApi->server=>" + response)
+                    });
+                }
+                if (browser.versions.android) {
+                    _jclient.JSApi(stringval);
+                }
+            }
+            function jump(browser,jt, ji) {
+                var stringval = 'jt=' + jt + "&ji=" + ji;
+                if (browser.versions.ios) {
+                    _jclient.callHandler('jump', stringval, function(response) {
+                        alert("jsApi->server=>" + response)
+                    })
+                }
+                if (browser.versions.android) {
+                    _jclient.jump(stringval);
+                }
+
+            }
+            function loadInfo() {
+                var abc = loginInfo()
+                alert("abc-===" + abc)
+            }
+            function testpost(){
+		 var myDate = new Date();
+		 var sec = myDate.getTime();
+		 var url = "http://op.joyme.com/public/test/post.php?"+sec;
+		 window.location = url;
+	    }		
+        </script>
+
+    </head><body>
+        <h1>webview 需要测试通过功能</h1>
+        <button onclick="saveImage(browser, 'http://game.91.com/gfxy/down/phone/pic/h2.jpg', '', '')">保存图片</button></br>
+        </br>
+        </br>
+        <button onclick="download(browser, 882465237, '', '')">Download app IOS appstore</button></br>
+        </br>
+        </br>
+        <button onclick="download(browser, 'http://bcs.91rb.com/vdownzy/8/201408/fa88daba360a4da9a03ac2dea810b219.apk', '', '')">Download app android apk</button></br>
+        </br>
+        </br>
+        <button onclick="jump(browser,'1', 'syhbao/pingguoduan/201411/0456757.html')">画报跳 文章详情 syhbao/pingguoduan/201411/0456757.html</button></br>
+        </br>
+        </br>
+        <button onclick="jump(browser,'2', '17')">画报跳 文章列表 17</button></br>
+        <h1>webview 后续支持功能</h1>
+        <button onclick="saveloginInfo2app()">保存登录状态到APP</button></br>
+        </br>
+        </br>
+        <button onclick="jsApi()">jsApi say</button></br>
+        </br>
+        </br>
+	<button  onclick="testpost()">php 页面 1 </button>
+    </body></html>

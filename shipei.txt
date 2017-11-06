@@ -1,0 +1,2 @@
+http://wiki.joyme.com/(\w+)/	http://m.wiki.joyme.com/\1/
+http://wiki.joyme.com/(\w+)/(\d+).shtml	http://m.wiki.joyme.com/\1/\2.shtml

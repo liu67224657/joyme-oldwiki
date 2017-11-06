@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <title><?php echo $title;?></title>
+  <meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"> 
+  <meta content="yes" name="apple-mobile-web-app-capable"> 
+  <meta content="black" name="apple-mobile-web-app-status-bar-style"> 
+  <meta content="telephone=no" name="format-detection"> 
+  <meta name="Keywords" content=""> 
+  <meta name="description" content="">
+  <?php echo '<script type="text/javascript">window.wgWikiCom="'.$wgWikiCom.'";window.wgPhpServer ="'.$wgPhpServer.'";window.wgWikiname = "'.$wgWikiname.'";window.title = "'.$title.'";window.wgServer ="'.$wgServer.'";</script>'?>
+<link href="<?php echo $wgStaticUrl;?>/css/common.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo $wgStaticUrl;?>/mobile/ucgwiki/wap-comment.css" rel="stylesheet" type="text/css" />
+<style>
+.inp-pic {z-index: 0;}
+</style>
+<script type="text/javascript">
+	;(function(doc,win) {
+		var size=640;//设计稿的尺寸
+		var int=100;  //初始字体值
+		var docEle = doc.documentElement,
+		evt = 'onorientationchange' in window ? 'orientationchange' : 'resize',
+		fn = function() {
+			var width = docEle.clientWidth;
+			if(width>size){
+				docEle.style.fontSize=int+'px';
+			}else{
+				width && (docEle.style.fontSize = width/(size/int) + 'px');	
+			}
+				doc.addEventListener('touchstart',function () {return false}, true);
+			};
+		win.addEventListener(evt, fn, false);
+		doc.addEventListener('DOMContentLoaded', fn, false);
+	}(document,window));
+</script>
+</head>
+<body>
+	<?php $wgIsLogin = $wgUser->isLoggedIn() ? 'true' : 'false';?>
+	<input id="joymelogin" name="joymelogin" type="hidden" value="<?php echo $wgIsLogin?>">
+	<section id="wrapper">
+        <div id="comment">
+            <div id="topbar" class="wp">
+				<?php
+				if($wgIsLogin == 'true'){
+					echo '<a href="http://passport.joyme.'.$wgWikiCom.'/auth/logout"><span class="t-login fn-right">退出</span></a>';
+				}else{
+					<!--echo '<a href="http://passport.joyme.'.$wgWikiCom.'/auth/loginpage"><span class="t-login fn-right">登录</span></a>';-->
+					echo '<a href="javascript:loginDiv();"><span class="t-login fn-right">登录</span></a>';
+				}
+				?>
+                <a href="<?php echo $wgServer.'/'.$title;?>"><span class="t-back">返回</span></a>
+            </div>
+            <div class="hot-comment cmt" style="display:none;">
+                <h2>热门评论</h2>
+                <div class="commentbox"><ul class="commentlist fn-ovf hot"></ul></div>
+            </div>
+			<div class="hot-comment cmt" style="display:none;">
+                <h2>所有评论</h2>
+                <div class="commentbox"><ul class="commentlist fn-ovf all"></ul></div>
+            </div>
+            <div class="loading">正在加载...</div>
+        </div>
+        <!--commentbar-->
+        <div class="commentbar">
+            <a href="javascript:;">我要评论</a>
+        </div>
+        <!--commentbar==end-->
+        <div class="commentform">
+            <div class="textmain">
+                <div class="textbox">
+                    <textarea class="c-textarea" placeholder="请输入内容，140字以内" id="maintext"></textarea>
+                    <div class="form-bottom" data-imgnum="5" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+                        <span class="fn-right">
+                            <a href="javascript:void(0);" class="cancel-btn">取消</a>
+                            <a href="javascript:void(0);" class="reply-btn txt-c" id="comment-bt-main" data-bt="true">回复</a>
+                        </span>
+                        <span class="smile-btn"></span>
+                        <span class="pic-btn"><code class="pic-num">1</code></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img-box" id="img-box">
+            <span class="upload"><input accept="image/*" type="file" class="inp-pic" id="upload_image" /></span>
+        </div>
+        <div class="smile-wrap" data-imgnum="5" onselectstart="return false;" unselectable="on" style="-moz-user-select:none;-webkit-user-select:none;">
+            <div class="smile-tit"></div>
+            <!--<div id="pic-loop" class="smile-box smile-cont"></div>-->
+            <!-- 图片轮播 -->
+            <div id="pic-loop"></div>
+            <!-- 图片轮播 -->
+        </div>
+        <div class="msg">
+			<div><span>最多只能输入140字！</span><em><a href="javascript:void(0);">确定</a><a href="javascript:void(0);">取消</a></em></div>
+        </div>
+    </section>
+	<input type="hidden" value="<?php echo $formhash;?>" id="formhash" />
+    <script type="text/javascript" src="http://static.joyme.com/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="http://static.joyme.com/js/swiper.js"></script>
+    <script type="text/javascript" src="<?php echo $wgStaticUrl;?>/js/wap-comment.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			mod.int();
+		});
+    </script>
+	<?php
+	echo '<script src="'.$wgStaticUrl.'/js/plupload.full.min.js"></script>';
+	echo '<script src="'.$wgStaticUrl.'/js/qiniu.js"></script>';
+	echo '<script src="'.$wgStaticUrl.'/js/phpcommentcore.js"></script>';
+	echo '<script src="'.$wgStaticUrl.'/js/phpcommenthtmlwap.js"></script>';
+	?>
+</body>
+</html>

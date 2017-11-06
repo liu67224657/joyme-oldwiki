@@ -1,0 +1,24 @@
+{
+	"@metadata": {
+		"authors": [
+			"Andriykopanytsia",
+			"Ата",
+			"Olion"
+		]
+	},
+	"popups-message": "Спливні вікна",
+	"popups-desc": "Відображає спливні вікна з описом змісту сторінок при наведенні покажчика миші на посилання сторінки.",
+	"popups-last-edited": "Остання редакція $1",
+	"popups-redirects": "перенаправляє на <h3>$1</h3>",
+	"popups-settings-title": "Попередній перегляд сторінки",
+	"popups-settings-description": "Цей інструмент дає Вам змогу попередньо переглядати сині посилання і примітки",
+	"popups-settings-option-simple": "Простий",
+	"popups-settings-option-simple-description": "Показувати першу фразу та ескіз малюнку зі сторінки. Рекомендовано для читачів",
+	"popups-settings-option-advanced": "Розширений",
+	"popups-settings-option-advanced-description": "Показувати активні посилання та доступ до функцій редагування. Використовується багатьма редакторами.",
+	"popups-settings-option-off": "Вимкнути Спливні вікна",
+	"popups-settings-option-off-description": "Ви можете змінити це налаштування, скориставшись посиланням унизу сторінки",
+	"popups-settings-save": "Зберегти",
+	"popups-settings-cancel": "Скасувати",
+	"popups-settings-enable": "Увімкнути Спливні вікна"
+}
